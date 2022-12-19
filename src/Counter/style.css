@@ -1,0 +1,34 @@
+.counter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.app {
+  margin-top: 40vh;
+}
+
+.value {
+  font-size: 36px;
+  font-weight: 400;
+  color: #222;
+}
+
+.decrement,
+.increment {
+  background-color: #ff597b;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.decrement {
+  background-color: #ff597b;
+}
+
+.increment {
+  background-color: #14c38e;
+}
