@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Counter from "../components/Counter";
-import Total from "./../Total/index";
 
 export default class Counters extends Component {
   state = {
@@ -10,6 +9,7 @@ export default class Counters extends Component {
       { id: 3, count: 0, steps: 3 },
       { id: 4, count: 0, steps: 4 },
     ],
+    total: 0,
   };
 
   onIncrement = (counter) => {
@@ -30,6 +30,20 @@ export default class Counters extends Component {
     }
   };
 
+  componentDidUpdate() {
+    this.setState((prevState) => {
+      const currentState = prevState.counters.reduce(
+        (acc, curr) => acc + curr.count,
+        0
+      );
+      if (prevState.total !== currentState) {
+        return {
+          total: currentState,
+        };
+      }
+    });
+  }
+
   render() {
     return (
       <div>
@@ -41,6 +55,7 @@ export default class Counters extends Component {
             onDecrement={this.onDecrement}
           />
         ))}
+        <div className="total">Total Of Counters: {this.state.total}</div>
       </div>
     );
   }
